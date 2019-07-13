@@ -44,7 +44,7 @@ namespace client2
             String password = label4.Text;
 
             const int port = 8888;
-            const string address = "192.168.0.111";
+            const string address = "127.0.0.1";
                 TcpClient client = null;
                 try
                 {
@@ -62,7 +62,7 @@ namespace client2
                         stream.Write(passwordData, 0, passwordData.Length);
                        byte[] data = new byte[64]; 
                         StringBuilder builder = new StringBuilder();
-                        int bytes = 0;
+                       /* int bytes = 0;
                         do
                         {
                             bytes = stream.Read(data, 0, data.Length);
@@ -70,7 +70,7 @@ namespace client2
                         }
                         while (stream.DataAvailable);
 
-                        message = builder.ToString();
+                        message = builder.ToString();*/
                     i++;
                     }
                 }

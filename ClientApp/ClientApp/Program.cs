@@ -7,7 +7,7 @@ namespace ConsoleClient
     class Program
     {
         const int port = 8888;
-        const string address = "192.168.0.101";
+        const string address = "127.0.0.1";
         static void Main(string[] args)
         {
             Console.Write("Введите свое имя:");

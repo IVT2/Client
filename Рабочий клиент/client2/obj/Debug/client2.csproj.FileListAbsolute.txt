@@ -8,3 +8,23 @@ C:\Users\Nastik\source\repos\client2\client2\obj\Debug\client2.csproj.GenerateRe
 C:\Users\Nastik\source\repos\client2\client2\obj\Debug\client2.csproj.CoreCompileInputs.cache
 C:\Users\Nastik\source\repos\client2\client2\obj\Debug\client2.exe
 C:\Users\Nastik\source\repos\client2\client2\obj\Debug\client2.pdb
+C:\Users\hyc\source\repos\IVT2\Client\Рабочий клиент\client2\obj\Debug\client2.csprojAssemblyReference.cache
+C:\Users\hyc\source\repos\IVT2\Client\Рабочий клиент\client2\obj\Debug\client2.exe
+C:\Users\hyc\source\repos\IVT2\Client\Рабочий клиент\client2\obj\Debug\client2.pdb
+C:\Users\hyc\source\repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\client2.exe.config
+C:\Users\hyc\source\repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\client2.exe
+C:\Users\hyc\source\repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\client2.pdb
+C:\Users\hyc\source\repos\IVT2\Client\Рабочий клиент\client2\obj\Debug\client2.Form1.resources
+C:\Users\hyc\source\repos\IVT2\Client\Рабочий клиент\client2\obj\Debug\client2.Properties.Resources.resources
+C:\Users\hyc\source\repos\IVT2\Client\Рабочий клиент\client2\obj\Debug\client2.csproj.GenerateResource.cache
+C:\Users\hyc\source\repos\IVT2\Client\Рабочий клиент\client2\obj\Debug\client2.csproj.CoreCompileInputs.cache
+C:\Users\hyc\Source\Repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\crypto.dll
+C:\Users\hyc\Source\Repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\InstaSharp.dll
+C:\Users\hyc\Source\Repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\InstaSharper.dll
+C:\Users\hyc\Source\Repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hyc\Source\Repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\System.IO.FileSystem.dll
+C:\Users\hyc\Source\Repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\hyc\Source\Repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\crypto.pdb
+C:\Users\hyc\Source\Repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\crypto.xml
+C:\Users\hyc\Source\Repos\IVT2\Client\Рабочий клиент\client2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hyc\Source\Repos\IVT2\Client\Рабочий клиент\client2\obj\Debug\client2.csproj.CopyComplete
