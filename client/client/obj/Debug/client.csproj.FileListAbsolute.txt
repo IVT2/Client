@@ -1,0 +1,14 @@
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\obj\Debug\client.csprojAssemblyReference.cache
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\obj\Debug\client.Form1.resources
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\obj\Debug\client.Properties.Resources.resources
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\obj\Debug\client.csproj.GenerateResource.cache
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\obj\Debug\client.csproj.CoreCompileInputs.cache
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\bin\Debug\client.exe.config
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\bin\Debug\client.exe
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\bin\Debug\client.pdb
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\bin\Debug\InstaSharper.dll
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\obj\Debug\client.csproj.CopyComplete
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\obj\Debug\client.exe
+C:\Users\Nastik\Desktop\test_client-new\test_client-new\client\client\obj\Debug\client.pdb
