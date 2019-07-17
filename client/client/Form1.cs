@@ -27,25 +27,22 @@ namespace client
         #endregion
         private static UserSessionData user;
         private static IInstaApi api;
+        
         public Form1()
         {
             InitializeComponent();
         }
 
-        public async static void Login()
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            string[] text = textBox2.Text.Split(' ');
             string userName = textBox1.Text;
             string password = textBox2.Text;
+            string[] text = textBox2.Text.Split(' ');
+            
 
             const int port = 8888;
-            const string address = "192.168.0.111";
+            const string address = "192.168.0.107";
+            string userExp = textBox6.Text;
             TcpClient client = null;
             try
             {
@@ -70,6 +67,8 @@ namespace client
 
                 message = builder.ToString();
                 label3.Text = message;
+
+                
             }
             catch (Exception ex)
             {
@@ -87,8 +86,10 @@ namespace client
 
         private async void button4_Click(object sender, EventArgs e)
         {
+            string userName = textBox1.Text;
+            string password = textBox2.Text;
             const int port = 8888;
-            const string address = "192.168.0.111";
+            const string address = "192.168.0.107";
             TcpClient client = null;
             try
             {
@@ -97,7 +98,15 @@ namespace client
                 string userExp = textBox6.Text;
                 if(userExp != "")
                 {
-                    
+                    user = new UserSessionData();
+                    user.UserName = userName;
+                    user.Password = password;
+                    api = InstaApiBuilder.CreateBuilder()
+                            .SetUser(user)
+                            .UseLogger(new DebugLogger(LogLevel.Exceptions))
+                            //.SetRequestDelay(TimeSpan.FromSeconds(1))
+                            .Build();
+                    var loginRequest = await api.LoginAsync();
 
                     label5.Text = "Done";
 
@@ -122,15 +131,12 @@ namespace client
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private async void button3_Click(object sender, EventArgs e)
-        {
+            string userName = textBox1.Text;
+            string password = textBox2.Text;
             const int port = 8888;
-            const string address = "192.168.0.111";
+            const string address = "192.168.0.107";
             TcpClient client = null;
             try
             {
@@ -140,10 +146,16 @@ namespace client
                 byte[] userExpData = Encoding.Unicode.GetBytes(userExp);
                 stream.Write(userExpData, 0, userExpData.Length);
 
-                user = new UserSessionData();
-
-                Like(userExp);
-                label7.Text = "Done";
+                if(userExp != "")
+                {
+                    Like(userExp, userName, password);
+                    label7.Text = "Done";
+                }
+                else
+                {
+                    label7.Text = "Enter username"; 
+                }
+                
 
             }
             catch (Exception ex)
@@ -157,22 +169,108 @@ namespace client
             }
 
             
-            }
+        }
 
 
 
-        public static async void Like(string userExp)
+        public static async void Like(string userExp, string userName, string password)
         {
-            
+            user = new UserSessionData();
+            user.UserName = userName;
+            user.Password = password;
+
             api = InstaApiBuilder.CreateBuilder()
                     .SetUser(user)
                     .UseLogger(new DebugLogger(LogLevel.Exceptions))
                     //.SetRequestDelay(TimeSpan.FromSeconds(1))
                     .Build();
+            var loginRequest = await api.LoginAsync();
 
+            IResult<InstaUser> userSearch = await api.GetUserAsync(userExp);
             IResult<InstaMediaList> media = await api.GetUserMediaAsync(userExp, PaginationParameters.MaxPagesToLoad(5));
-            List<InstaMedia> mediaList = media.Value.ToList();
-            await api.LikeMediaAsync(mediaList[4].InstaIdentifier);
+            var mediaList = media.Value;
+            int count_mediaList = mediaList.ToArray().Length;
+            for (int i = 0; i < count_mediaList; i++)
+            {
+                var res = await api.LikeMediaAsync(mediaList[i].InstaIdentifier);
+                string result = res.Succeeded.ToString();
+            }
+
+
+        }
+
+        public static async void Info(string userExp, string userName, string password)
+        {
+            
+        }
+
+        public static async void Subs(string userExp, string userName, string password)
+        {
+            user = new UserSessionData();
+            user.UserName = userName;
+            user.Password = password;
+
+            api = InstaApiBuilder.CreateBuilder()
+                    .SetUser(user)
+                    .UseLogger(new DebugLogger(LogLevel.Exceptions))
+                    //.SetRequestDelay(TimeSpan.FromSeconds(1))
+                    .Build();
+            var loginRequest = await api.LoginAsync();
+
+            IResult<InstaUser> userSearch = await api.GetUserAsync(userExp);
+
+            IResult<InstaUserShortList> followers = await api.GetUserFollowersAsync(userSearch.Value.UserName, PaginationParameters.MaxPagesToLoad(5));
+            var followlist = followers.Value;
+            int count_followlist = followlist.ToArray().Length;
+            for(int i = 0; i < count_followlist; i++)
+            {
+                var res = await api.FollowUserAsync(followlist[i].Pk);
+                string result = res.Succeeded.ToString();
+            }
+
+            
+                
+            
+            
+
+        }
+
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string userName = textBox1.Text;
+            string password = textBox2.Text;
+            const int port = 8888;
+            const string address = "192.168.0.107";
+            TcpClient client = null;
+            try
+            {
+                client = new TcpClient(address, port);
+                NetworkStream stream = client.GetStream();
+                string userExp = textBox6.Text;
+                byte[] userExpData = Encoding.Unicode.GetBytes(userExp);
+                stream.Write(userExpData, 0, userExpData.Length);
+
+                if (userExp != "")
+                {
+                    Subs(userExp, userName, password);
+                    label6.Text = "Done";
+                }
+                else
+                {
+                    label6.Text = "Enter username";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                label6.Text = ex.Message;
+            }
+            finally
+            {
+                if (client != null)
+                    client.Close();
+            }
 
         }
     }

@@ -140,6 +140,7 @@
             this.button5.TabIndex = 14;
             this.button5.Text = "Подписка";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // textBox6
             // 
@@ -148,6 +149,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(76, 20);
             this.textBox6.TabIndex = 18;
+            this.textBox6.Text = "serj_atari";
             // 
             // listBox1
             // 
@@ -181,9 +183,8 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(267, 81);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(13, 13);
+            this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 22;
-            this.label7.Text = "1";
             // 
             // Form1
             // 
@@ -208,7 +209,6 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "Инстаграм бот";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
