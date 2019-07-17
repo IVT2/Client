@@ -23,8 +23,6 @@ namespace client
 {
     public partial class Form1 : Form
     {
-        #region Hidden
-        #endregion
         private static UserSessionData user;
         private static IInstaApi api;
         public Form1()
@@ -44,20 +42,17 @@ namespace client
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            string[] text = textBox2.Text.Split(' ');
             string userName = textBox1.Text;
             string password = textBox2.Text;
 
             const int port = 8888;
-            const string address = "192.168.43.57";
+            const string address = "127.0.0.1";
             TcpClient client = null;
             try
             {
                 client = new TcpClient(address, port);
                 NetworkStream stream = client.GetStream();
                 string message = String.Format("{0}, {1}", userName, password);
-
                 byte[] userData = Encoding.Unicode.GetBytes(userName);
                 byte[] passwordData = Encoding.Unicode.GetBytes(password);
                 stream.Write(userData, 0, userData.Length);
@@ -78,7 +73,7 @@ namespace client
             }
             catch (Exception ex)
             {
-
+                label3.Text = ex.Message;
             }
 
         }
@@ -86,24 +81,6 @@ namespace client
         private void label4_Click(object sender, EventArgs e)
         {
 
-        }
-
-
-
-        public async static void Login(Label label3)
-        {
-            label3.Text = "Connecting";
-            api = InstaApiBuilder.CreateBuilder()
-                .SetUser(user)
-                .UseLogger(new DebugLogger(LogLevel.Exceptions))
-                .SetRequestDelay(RequestDelay.FromSeconds(0, 3))
-                .Build();
-
-            var loginReguest = await api.LoginAsync();
-            if (loginReguest.Succeeded)
-                label3.Text = "ok";
-            else
-                label3.Text = "!ok " + loginReguest.Info.Message;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -114,47 +91,66 @@ namespace client
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
-
-            PullUserPosts("ivt22222");
-            async void PullUserPosts(string userToScrape)
-            {
-                
-                IResult<InstaUser> userSearch = await api.GetUserAsync(userToScrape);
-                //textBox3.Text = userSearch.Value.FullName;
-                //textBox4.Text = userSearch.Value.FollowersCount.ToString();
-                //textBox5.Text = userSearch.Value.IsVerified.ToString();
-                IResult<InstaMediaList> media = await api.GetUserMediaAsync(userToScrape, PaginationParameters.MaxPagesToLoad(5));
-                List<InstaMedia> mediaList = media.Value.ToList();
-                for (int i = 0; i < mediaList.Count; i++)
-                {
-                    InstaMedia m = mediaList[i];
-                    if (m != null && m.Caption != null)
-                    {
-                        string captionText = m.Caption.Text;
-                        if (captionText != null)
-                        {
-                            if (m.MediaType == InstaMediaType.Image)
-                            {
-                                for (int x = 0; x < m.Images.Count; x++)
-                                {
-                                    if (m.Images[x] != null && m.Images[x].URI != null)
-                                    {
-                                       listBox1.Text = captionText;
-                                        string uri = m.Images[x].URI;
-                                        listBox1.Text = uri;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            //PullUserPosts("ivt22222");
+            //async void PullUserPosts(string userToScrape)
+            //{
+            //    IResult<InstaUser> userSearch = await api.GetUserAsync(userToScrape);
+            //    IResult<InstaMediaList> media = await api.GetUserMediaAsync(userToScrape, PaginationParameters.MaxPagesToLoad(5));
+            //    List<InstaMedia> mediaList = media.Value.ToList();
+            //    for (int i = 0; i < mediaList.Count; i++)
+            //    {
+            //        InstaMedia m = mediaList[i];
+            //        if (m != null && m.Caption != null)
+            //        {
+            //            string captionText = m.Caption.Text;
+            //            if (captionText != null)
+            //            {
+            //                if (m.MediaType == InstaMediaType.Image)
+            //                {
+            //                    for (int x = 0; x < m.Images.Count; x++)
+            //                    {
+            //                        if (m.Images[x] != null && m.Images[x].URI != null)
+            //                        {
+            //                           listBox1.Text = captionText;
+            //                            string uri = m.Images[x].URI;
+            //                            listBox1.Text = uri;
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            const int port = 8888;
+            const string address = "127.0.0.1";
+            TcpClient client = null;
+
+            client = new TcpClient(address, port);
+            NetworkStream stream = client.GetStream();
+            string expUser = textBox6.Text;
+
+            byte[] expUserData = Encoding.Unicode.GetBytes(expUser);
+            stream.Write(expUserData, 0, expUserData.Length);
+
+
+
+            //IResult<InstaMediaList> media = await api.GetUserMediaAsync(textBox6.Text, PaginationParameters.MaxPagesToLoad(5));
+            //List<InstaMedia> mediaList = media.Value.ToList();
+            //await api.LikeMediaAsync(mediaList[4].InstaIdentifier);
         }
     }
 }
