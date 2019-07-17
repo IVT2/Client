@@ -40,6 +40,9 @@
             this.button5 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -95,14 +98,13 @@
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Статус";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(418, 91);
+            this.button3.Location = new System.Drawing.Point(307, 78);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 23);
+            this.button3.Size = new System.Drawing.Size(85, 19);
             this.button3.TabIndex = 10;
             this.button3.Text = "Лайк";
             this.button3.UseVisualStyleBackColor = true;
@@ -110,10 +112,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(418, 118);
+            this.button4.Location = new System.Drawing.Point(307, 108);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(85, 23);
+            this.button4.Size = new System.Drawing.Size(85, 19);
             this.button4.TabIndex = 11;
             this.button4.Text = "Информация";
             this.button4.UseVisualStyleBackColor = true;
@@ -122,7 +124,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(415, 52);
+            this.label4.Location = new System.Drawing.Point(411, 62);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
@@ -131,31 +133,57 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(418, 145);
+            this.button5.Location = new System.Drawing.Point(307, 139);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(85, 23);
+            this.button5.Size = new System.Drawing.Size(85, 19);
             this.button5.TabIndex = 14;
             this.button5.Text = "Подписка";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(418, 67);
+            this.textBox6.Location = new System.Drawing.Point(414, 77);
             this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(87, 20);
+            this.textBox6.Size = new System.Drawing.Size(76, 20);
             this.textBox6.TabIndex = 18;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(11, 193);
+            this.listBox1.Location = new System.Drawing.Point(134, 222);
             this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(708, 225);
+            this.listBox1.Size = new System.Drawing.Size(553, 134);
             this.listBox1.TabIndex = 19;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(267, 111);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(13, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "2";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(267, 142);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(13, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "3";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(267, 81);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 13);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "1";
             // 
             // Form1
             // 
@@ -163,6 +191,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(730, 426);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.button5);
@@ -177,6 +208,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "Инстаграм бот";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,6 +228,9 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
 
